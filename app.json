@@ -9,5 +9,13 @@
     ],
     "name": "Expo-Auth-Starter-Template",
     "slug": "Expo-Auth-Starter-Template"
-  }
+  },
+ 
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FF7754" 
+    }
+
+  
 }

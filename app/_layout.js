@@ -4,7 +4,8 @@ import {
     Slot,
     Stack,
 } from 'expo-router';
-import { useFonts, 
+import {
+    useFonts,
     Inter_100Thin,
     Inter_200ExtraLight,
     Inter_300Light,
@@ -13,9 +14,11 @@ import { useFonts,
     Inter_600SemiBold,
     Inter_700Bold,
     Inter_800ExtraBold,
-    Inter_900Black, } from '@expo-google-fonts/inter'; // add your fonts here
+    Inter_900Black,
+} from '@expo-google-fonts/inter'; // add your fonts here
 import { useEffect } from 'react';
-import { COLORS } from '../constants/theme';
+import { APP_NAME, COLORS, FONT } from '../constants/theme';
+import { StatusBar } from 'expo-status-bar';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -49,18 +52,35 @@ export default function Layout() {
 
     // Render the children routes now that all the assets are loaded.
     return <Stack
-        screenOptions={{
-            headerShown: true, // Set this to false to hide the header bar across the entire app
-            headerLargeTitle: true, // Set this to true to use the large title iOS feature
-            headerStyle: {
-                backgroundColor: COLORS.primary, // Set your header color here
-            },
-            headerTintColor: COLORS.white, // Set your header text color here
-            headerLargeStyle: {
-                backgroundColor: COLORS.primary, // Set your large header color here if different from headerStyle
-            },
-            headerLargeTintColor: COLORS.white, // Set your large header text color here if different from headerTintColor
-            
-        }}
-    />;
+                screenOptions={{
+                    headerShown: true, // Set this to false to hide the header bar across the entire app
+                    headerTitle: APP_NAME, // Set the header title 
+                    headerLargeTitle: true, // Set this to true to use the large title iOS feature
+                    headerStyle: {
+                        backgroundColor: COLORS.primary, // Set your header color here
+                    },
+                    headerTintColor: COLORS.white, // Set your header text color here
+                    headerLargeStyle: {
+                        backgroundColor: COLORS.primary, // Set your large header color here if different from headerStyle
+                    },
+                    headerLargeTintColor: COLORS.white, // Set your large header text color here if different from headerTintColor
+                    headerTitleStyle: {
+                        fontFamily: FONT.extraBold, // Set your header font family here
+                    },
+                    headerLargeTitleStyle: {
+                        fontFamily: FONT.extraBold, // Set your large header font family here if different from headerTitleStyle
+                    },
+                    headerLeft: () => null, // Set your custom header left component here
+                    headerRight: () => null, // Set your custom header right component here
+                    headerBackButtonMenuEnabled: false, // Set this to true to show the menu icon when the back button is pressed on Android
+                    headerBackTitleVisible: true, // Set this to true to show the back button title on iOS
+                    headerBackTitle: 'Back', // Set your back button title here
+                    headerHideShadow: false, // Set this to true to hide the header shadow
+                    headerLargeTitleShadowVisible: true, // Set this to true to show the shadow on the large header
+
+
+                }}
+            />;
+
+
 }
