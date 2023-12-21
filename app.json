@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "Expo-Auth-Starter-Template",
+    "slug": "Expo-Auth-Starter-Template"
+  }
+}
