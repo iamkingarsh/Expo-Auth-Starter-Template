@@ -1,13 +1,8 @@
-# Expo Router Example
-
-Use [`expo-router`](https://docs.expo.dev/router/introduction/) to build native navigation using files in the `app/` directory.
-
 ## 🚀 How to use
 
-```sh
-npx create-expo-app -e with-router
-```
+1. Start by adding your app details, theme colors, and other preferences in the `constants/theme.js` file.
 
-## 📝 Notes
+2. Run the following command to create an Expo app with router:
 
-- [Expo Router: Docs](https://docs.expo.dev/router/introduction/)
+
+##

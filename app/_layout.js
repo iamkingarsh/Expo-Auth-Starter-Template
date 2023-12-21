@@ -13,8 +13,9 @@ import { useFonts,
     Inter_600SemiBold,
     Inter_700Bold,
     Inter_800ExtraBold,
-    Inter_900Black, } from '@expo-google-fonts/inter';
+    Inter_900Black, } from '@expo-google-fonts/inter'; // add your fonts here
 import { useEffect } from 'react';
+import { COLORS } from '../constants/theme';
 
 
 SplashScreen.preventAutoHideAsync();
@@ -32,7 +33,7 @@ export default function Layout() {
         Inter_700Bold,
         Inter_800ExtraBold,
         Inter_900Black,
-    });
+    }); // add your fonts here
 
     useEffect(() => {
         if (fontsLoaded || fontError) {
@@ -49,11 +50,17 @@ export default function Layout() {
     // Render the children routes now that all the assets are loaded.
     return <Stack
         screenOptions={{
+            headerShown: true, // Set this to false to hide the header bar across the entire app
+            headerLargeTitle: true, // Set this to true to use the large title iOS feature
             headerStyle: {
-                backgroundColor: '#fff',
-                shadowColor: 'transparent',
+                backgroundColor: COLORS.primary, // Set your header color here
             },
-            headerTintColor: '#000',
+            headerTintColor: COLORS.white, // Set your header text color here
+            headerLargeStyle: {
+                backgroundColor: COLORS.primary, // Set your large header color here if different from headerStyle
+            },
+            headerLargeTintColor: COLORS.white, // Set your large header text color here if different from headerTintColor
+            
         }}
     />;
 }

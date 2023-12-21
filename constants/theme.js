@@ -4,9 +4,9 @@ const APP_DESCRIPTION = "My App Description";
 const APP_AUTHOR = "My Name";
 
 const COLORS = {
-  primary: "#312651",
+  primary: "#FF7754",
   secondary: "#444262",
-  tertiary: "#FF7754",
+  tertiary: "#312651",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
