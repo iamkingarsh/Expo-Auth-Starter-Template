@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
-import { COLORS, FONT, SIZES } from '../constants/theme';
+import { COLORS, FONT, SIZES } from '../../constants/theme';
 
 const Button = ({ variant, onPress, children, ...props }) => {
 
@@ -12,7 +12,7 @@ const Button = ({ variant, onPress, children, ...props }) => {
             case 'secondary':
                 return [tw`px-8 py-3 mx-3 my-1 rounded-md`,{backgroundColor: COLORS.secondary}, props.style];
             default:
-                return [tw`px-8 py-3 mx-3 my-1 rounded-md`,{backgroundColor: COLORS.tertiary}, props.style];
+                return [tw`px-8 py-3 mx-3 my-1 rounded-md`,{backgroundColor: COLORS.white}, props.style];
         }
     });
 
@@ -23,7 +23,7 @@ const Button = ({ variant, onPress, children, ...props }) => {
             case 'secondary':
                 return [tw`text-center `, {color: COLORS.white, fontFamily: FONT.semiBold, fontSize: SIZES.medium}, props.style];
             default:
-                return [tw`text-center `, {color: COLORS.white, fontFamily: FONT.semiBold, fontSize: SIZES.medium}, props.style];
+                return [tw`text-center `, {color: COLORS.black, fontFamily: FONT.semiBold, fontSize: SIZES.medium}, props.style];
         }
     });
 
