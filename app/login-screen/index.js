@@ -1,4 +1,4 @@
-import { View, Animated, TouchableOpacity, Text, SafeAreaView } from 'react-native'
+import { View, Animated, TouchableOpacity, Text, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 import { COLORS, FONT, SHADOWS, SIZES } from '../../constants/theme'
@@ -60,7 +60,7 @@ const LoginScreen = () => {
               onLongPress={onLongPress}
               style={ isFocused ?  [{ flex: 1, alignItems: 'center', backgroundColor: COLORS.lightWhite, paddingVertical: SIZES.small, justifyContent: 'center', borderRadius: SIZES.small, }, SHADOWS.small] : { flex: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 100}}
             >
-              <Animated.Text style={{ opacity }}>
+              <Animated.Text style={isFocused ? [{ color: COLORS.tertiary, fontFamily: FONT.semiBold, fontSize: SIZES.medium }, { opacity }] : [{ color: COLORS.gray, fontFamily: FONT.semiBold, fontSize: SIZES.medium }, { opacity }]}>
                 {label}
               </Animated.Text>
             </TouchableOpacity>
@@ -101,16 +101,19 @@ const LoginScreen = () => {
       }
       />
 
+         
       <SafeAreaView style={tw` bg-white h-full`}>
+
         <NavigationContainer  independent={true}>
           <tab.Navigator
             tabBar={props => <MyTabBar {...props} />}
-          >
+            >
             <tab.Screen  name="Mobile" component={LoginWithMobile} />
             <tab.Screen name="Email" component={LoginWithEmail} />
           </tab.Navigator>
         </NavigationContainer>
       </SafeAreaView>
+     
     </>
 
   )

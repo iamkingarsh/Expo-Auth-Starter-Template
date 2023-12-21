@@ -1,11 +1,12 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import { COLORS } from '../constants/theme'
 
 const LoginWithMobile = () => {
   return (
-    <SafeAreaView>
-    <Text>LoginWithMobile</Text>
-  </SafeAreaView>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white2}}>
+      <Text>LoginWithMobile</Text>
+    </SafeAreaView>
   )
 }
 
