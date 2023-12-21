@@ -62,7 +62,7 @@ const landingScreen = () => {
                     >
 
                         <Button onPress={() => router.push('login-screen')} variant="default">Login</Button>
-                        <Button variant="secondary">Register</Button>
+                        <Button onPress={() => router.push('register-screen')}  variant="secondary">Register</Button>
                     </View>
                 </View>
 
