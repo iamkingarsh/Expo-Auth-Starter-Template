@@ -104,8 +104,10 @@ const LoginScreen = () => {
          
       <SafeAreaView style={tw` bg-white h-full`}>
 
-        <NavigationContainer  independent={true}>
+        <NavigationContainer   independent={true}>
           <tab.Navigator
+          style={{backgroundColor: COLORS.white2}}
+            initialRouteName="Mobile"
             tabBar={props => <MyTabBar {...props} />}
             >
             <tab.Screen  name="Mobile" component={LoginWithMobile} />

@@ -52,6 +52,13 @@ export default function Layout() {
 
     // Render the children routes now that all the assets are loaded.
     return <Stack
+    screenListeners={
+        {
+            didFocus: () => {
+                StatusBar.setBarStyle('light-content');
+            },
+        }
+    }
                 screenOptions={{
                     headerShown: true, // Set this to false to hide the header bar across the entire app
                     headerTitle: APP_NAME, // Set the header title 
@@ -77,7 +84,7 @@ export default function Layout() {
                     headerBackTitle: 'Back', // Set your back button title here
                     headerHideShadow: false, // Set this to true to hide the header shadow
                     headerLargeTitleShadowVisible: true, // Set this to true to show the shadow on the large header
-
+                    
 
                 }}
             />;

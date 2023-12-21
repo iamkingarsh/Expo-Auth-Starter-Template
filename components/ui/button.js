@@ -8,7 +8,7 @@ const Button = ({ variant, onPress, children, ...props }) => {
     const [buttonStyle, setButtonStyle] = useState(() => {
         switch (variant) {
             case 'primary':
-                return [tw`px-8 py-3 mx-3 my-1 rounded-md`, {backgroundColor: COLORS.primary}, props.style];
+                return [tw`px-8 py-3 mx-3 my-1 rounded-md`, {backgroundColor: COLORS.primary}, props.style, ];
             case 'secondary':
                 return [tw`px-8 py-3 mx-3 my-1 rounded-md`,{backgroundColor: COLORS.secondary}, props.style];
             default:
