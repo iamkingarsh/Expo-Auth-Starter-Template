@@ -27,17 +27,15 @@ const landingScreen = () => {
                     >
                         <View
                             style={{
-                                backgroundColor: COLORS.primary,
-                                height: '10%',
-                            margin: SIZES.medium
+                            
+                              
+                                margin: SIZES.medium
 
                             }}
                         >
 
                         <Carousel
-                            style={{
-                                height: '10%',
-                            }}
+                          
                             >
                             <View>
                                 <Text>1</Text>
