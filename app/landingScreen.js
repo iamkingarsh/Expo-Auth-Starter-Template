@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView, Dimensions } from 'react-native'
 import React from 'react'
 import { Stack, router } from 'expo-router'
-import { COLORS, SIZES } from '../constants/theme'
+import { COLORS, FONT, SIZES } from '../constants/theme'
 import { StatusBar } from 'expo-status-bar'
 import Button from '../components/ui/button'
 import Carousel from '../components/carousel'
+import tw from 'tailwind-react-native-classnames'
 
 const landingScreen = () => {
     return (
@@ -37,15 +38,14 @@ const landingScreen = () => {
                         <Carousel
                           
                             >
-                            <View>
-                                <Text>1</Text>
+                            <View style={tw`w-full`}>
+                                <Text style={{fontSize: SIZES.large, fontFamily: FONT.bold}}>Carousel</Text>
                             </View>
                             <View>
-                                <Text>2</Text>
+                                <Text style={{fontSize: SIZES.large, fontFamily: FONT.bold}}>Carousel</Text>
                             </View>
-                            <View>
-                                <Text>3</Text>
-                            </View>
+                             
+                           
                         </Carousel>
                     </View>
                     </View>

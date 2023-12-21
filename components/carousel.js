@@ -17,7 +17,7 @@ const Carousel = ({ children,  ...props }) => {
 
             {children.map((child, index) => (
             <SafeAreaView key={index} style={[tw` `, {color: COLORS.gray},  props.style]} >
-                <View style={{ width: screenWidth }}>
+                <View style={tw`w-full`}>
                     {child}
                 </View>
             </SafeAreaView>
