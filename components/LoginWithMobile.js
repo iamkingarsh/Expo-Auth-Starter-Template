@@ -48,10 +48,6 @@ const LoginWithMobile = () => {
   }
 
 
-
-
-
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white2, }}>
       <View style={{ margin: SIZES.medium, gap: 6, justifyContent: 'center' }}>

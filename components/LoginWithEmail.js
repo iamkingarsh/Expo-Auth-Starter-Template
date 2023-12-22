@@ -13,7 +13,7 @@ const LoginWithEmail = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const registeredEmail = 'kingarsh175@gmail.com'; //dummy email for login
-    const registeredPassword = '123456'; //dummy password for login
+    const registeredPassword = '123456'; //dummy password 
 
     
 
