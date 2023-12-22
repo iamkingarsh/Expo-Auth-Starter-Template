@@ -89,7 +89,7 @@ const landingScreen = () => {
             stopAutoScroll();
         };
     }, [currentIndex]);
-    
+
     return (
         <View>
 
@@ -152,7 +152,7 @@ const landingScreen = () => {
                     <View style={{ margin: SIZES.medium }}>
 
                         <Button onPress={() => router.push('login-screen')} variant="default">Login</Button>
-                        <Button onPress={() => router.push('register-screen')} variant="secondary">Register</Button>
+                        <Button onPress={() => router.push('register-screen')} variant="secondary">Create an Account</Button>
                     </View>
                 </View>
             </View>
