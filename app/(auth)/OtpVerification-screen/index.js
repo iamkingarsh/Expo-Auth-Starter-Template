@@ -73,36 +73,44 @@ const index = () => {
                 }}
             />
             <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, margin: SIZES.medium }}>
-            <KeyboardAvoidingView behavior='padding'  keyboardVerticalOffset={-150} style={{ flex: 1 }}>
-                
-                <View style={{ flex: 1 }}>
-                <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center' }}>
-                    <Image source={require('../../../assets/images/OTPScreen.png')} style={{ width: 200, objectFit:'contain'}} />
-                </View>
-                <View style={{ flex: 0.6 }}>
-                    <View style={{ marginBottom: SIZES.xLarge }}>
-                        <Text style={{ fontFamily: FONT.semiBold, fontSize: SIZES.xLarge, color: COLORS.tertiary }}>Enter OTP</Text>
-                        <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.gray }}>A 6 digit OTP has been sent to  your mobile number +91 7013396624</Text>
-                    </View>
-                    <View style={{flex: 0.25,  justifyContent: 'start', alignItems: 'start' }}>
-                            <OtpInput
-                            length={6}
-                            value={otp}
-                            onOtpChange={(text) => setOtp(text)}/>
-                    </View>
-                    <View style={{ flex: 0.3 }}>
+                <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={-150} style={{ flex: 1 }}>
 
-                    <Button disabled={otp.length != 6 ? true : false} variant="primary" onPress={() => verifyOTP()}>Verify</Button>
-                    <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: SIZES.small }}>
-                        <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.gray }}>Didn't receive the OTP?</Text>
-                        <TouchableOpacity>
-                            <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.tertiary }}>Resend OTP</Text>
-                        </TouchableOpacity>
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center' }}>
+                            <Image source={require('../../../assets/images/OTPScreen.png')} style={{ width: 200, objectFit: 'contain' }} />
+                        </View>
+                        <View style={{ flex: 0.6 }}>
+                            <View style={{ marginBottom: SIZES.xLarge }}>
+                                <Text style={{ fontFamily: FONT.semiBold, fontSize: SIZES.xLarge, color: COLORS.tertiary }}>Enter OTP</Text>
+                                <View style={{  marginTop:SIZES.xxSmall }}>
+                                    <Text style={{ fontFamily: FONT.medium, fontSize: SIZES.medium, color: COLORS.gray }}>
+                                        A 6 digit OTP has been sent to 
+                                    </Text>
+                                    <Text style={{ fontFamily: FONT.medium, fontSize: SIZES.medium, color: COLORS.gray }}>
+                                         mobile number
+                                    </Text>
+                                </View>
+
+                            </View>
+                            <View style={{ flex: 0.25, justifyContent: 'start', alignItems: 'start' }}>
+                                <OtpInput
+                                    length={6}
+                                    value={otp}
+                                    onOtpChange={(text) => setOtp(text)} />
+                            </View>
+                            <View style={{ flex: 0.3 }}>
+
+                                <Button disabled={otp.length != 6 ? true : false} variant="primary" onPress={() => verifyOTP()}>Verify</Button>
+                                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: SIZES.small }}>
+                                    <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.gray }}>Didn't receive the OTP?</Text>
+                                    <TouchableOpacity>
+                                        <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.tertiary }}>Resend OTP</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
                     </View>
-                    </View>
-                </View>
-                </View>
-                </KeyboardAvoidingView> 
+                </KeyboardAvoidingView>
 
             </SafeAreaView>
         </>
