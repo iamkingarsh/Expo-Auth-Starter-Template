@@ -56,12 +56,11 @@ const index = () => {
                                         [
                                             {
                                                 text: "Cancel",
-                                                onPress: () => console.log("Cancel Pressed"),
                                                 style: "cancel"
                                             },
                                             { text: "OK", onPress: () => router.push('/login-screen') }
                                         ],
-                                        { cancelable: false }
+                                        { cancelable: true }
                                     );
                                 }}>
                                     <ArrowLeftIcon width={24} height={24} fill={COLORS.tertiary} />
@@ -92,7 +91,7 @@ const index = () => {
                     </View>
                     <View style={{ flex: 0.3 }}>
 
-                    <Button disabled={otp.length === 6 ? true : false} variant="primary" onPress={() => verifyOTP()}>Verify</Button>
+                    <Button disabled={otp.length != 6 ? true : false} variant="primary" onPress={() => verifyOTP()}>Verify</Button>
                     <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: SIZES.small }}>
                         <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.gray }}>Didn't receive the OTP?</Text>
                         <TouchableOpacity>
