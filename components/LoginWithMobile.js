@@ -39,7 +39,7 @@ const LoginWithMobile = () => {
   const handlesubmit = () => {
     //add submit logic here
     if (validMobileNumbers.includes(mobile)) {
-      alert('OTP sent to ' + mobile)
+      router.push('/OtpVerification-screen')
     } else {
       alert('Invalid mobile number')
       setError(true);
