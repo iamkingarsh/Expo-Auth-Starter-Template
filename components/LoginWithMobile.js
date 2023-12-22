@@ -1,15 +1,18 @@
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { COLORS, SIZES } from '../constants/theme'
+import { COLORS, FONT, SIZES } from '../constants/theme'
 import Button from './ui/button'
+import tw from 'tailwind-react-native-classnames'
 
 const LoginWithMobile = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white2, }}>
-        <View style={{flex: 1, margin:SIZES.small, justifyContent: 'center'}}>
+        <View style={{ margin:SIZES.small, justifyContent: 'center'}}>
 
            <Button variant="primary" >Request Otp</Button>
         </View>
+       
+       
 
     </SafeAreaView>
   )
