@@ -5,7 +5,7 @@ const RegisterScreen = () => {
   return (
     <>
     <SafeAreaView>
-      <Text>loginScreen</Text>
+      <Text>Register</Text>
     </SafeAreaView>
     </>
   )
