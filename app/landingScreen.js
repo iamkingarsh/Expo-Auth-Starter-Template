@@ -1,14 +1,46 @@
-import { View, Text, SafeAreaView, Dimensions } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, Dimensions, FlatList, Image, Animated } from 'react-native'
+import React, { useRef, useState } from 'react'
 import { Stack, router } from 'expo-router'
 import { COLORS, FONT, SIZES } from '../constants/theme'
 import { StatusBar } from 'expo-status-bar'
 import Button from '../components/ui/button'
-import Carousel from '../components/carousel'
 import tw from 'tailwind-react-native-classnames'
 import carouselData from '../constants/carouselData'
+import CarouselItem from '../components/carouselItem'
 
 const landingScreen = () => {
+    const carouselsData = [
+        {
+            id: '1',
+            title: 'Title 1',
+            description: 'Description 1',
+            image: require('../assets/images/Carousel3.png')
+        },
+        {
+            id: '2',
+            title: 'Title 2',
+            description: 'Description 2',
+            image: require('../assets/images/Carousel3.png')
+        },
+        {
+            id: '3',
+            title: 'Title 3',
+            description: 'Description 3',
+            image: require('../assets/images/Carousel3.png')
+        },
+    ]
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const scrollX = useRef(new Animated.Value(0)).current;
+
+    const slidesRef = useRef(null);
+
+
+    const viewableItemsChanged = useRef(({viewableItems}) => {
+        setCurrentIndex(viewableItems[0].index)
+    }).current;
+
+    const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
+
     return (
         <View>
           
@@ -30,15 +62,30 @@ const landingScreen = () => {
                         <View
                             style={{
                             
-                              
-                                margin: SIZES.medium
+                                flex:3,
+                                // margin: SIZES.medium
 
                             }}
                         >
 
-                        <Carousel
+                        
+                        <FlatList
                         data={carouselData}
-                        />
+                        renderItem={({item}) => <CarouselItem item={item} />}
+                        bounces={false}
+                        keyExtractor={(item) => item.id}
+                        horizontal 
+                        pagingEnabled
+                        scrollEnabled
+                        scrollEventThrottle={32}
+                        viewabilityConfig={viewConfig}
+                        onViewableItemsChanged={viewableItemsChanged}
+                        onScroll={Animated.event(
+                            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+                            {useNativeDriver: false}
+                        )}
+                        ref={slidesRef}
+                        showsHorizontalScrollIndicator={false} />
                     </View>
                     </View>
                     <View
