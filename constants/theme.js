@@ -1,7 +1,14 @@
-const APP_NAME = "My App";
+const APP_NAME = "APlus Laundry";
 const APP_VERSION = "1.0.0";
 const APP_DESCRIPTION = "My App Description";
 const APP_AUTHOR = "My Name";
+
+//Login Screen
+
+const AUTH_TYPES = {
+  EMAIL: true,
+  MOBILE: false,
+};
 
 const COLORS = {
   primary: "#2E3190",
@@ -64,4 +71,4 @@ const SHADOWS = {
   },
 };
 
-export {APP_NAME, COLORS, FONT, SIZES, SHADOWS };
+export {APP_NAME, COLORS, FONT, SIZES, SHADOWS,AUTH_TYPES };

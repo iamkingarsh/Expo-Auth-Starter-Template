@@ -8,10 +8,9 @@ import Input from './ui/Input'
 const LoginWithMobile = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white2, }}>
-        <View style={{ margin:SIZES.medium, justifyContent: 'center'}}>
-            <Input 
-             
-            placeholder="Enter Mobile Number" type="numeric" />
+        <View style={{ margin:SIZES.medium, gap:6, justifyContent: 'center'}}>
+            
+            <Input placeholder="Enter Mobile Number" type="phone" />
            <Button variant="primary" >Request OTP</Button>
         </View>
        

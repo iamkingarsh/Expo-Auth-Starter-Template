@@ -4,11 +4,19 @@ import tw from 'tailwind-react-native-classnames';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 import * as Haptics from 'expo-haptics';
 
-const Input = ({ type, ...props }) => {
+const Input = ({ type, label, labelTitle, ...props }) => {
     let keyboardType = 'default';
 
     if (type === 'numeric') {
         keyboardType = 'numeric';
+    }
+
+    if (type === 'email') {
+        keyboardType = 'email-address';
+    }
+
+    if (type === 'phone') {
+        keyboardType = 'phone-pad';
     }
 
     const hapticFeedback = () => {
@@ -26,6 +34,7 @@ const Input = ({ type, ...props }) => {
                 props.onKeyPress && props.onKeyPress();
                 hapticFeedback();
             }}
+            
             selectionColor={COLORS.primary}
             value={props.value}
             onChangeText={props.onChangeText}            
