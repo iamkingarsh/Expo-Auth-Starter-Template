@@ -80,8 +80,6 @@ const LoginScreen = () => {
 
   return (
     <>
-
-
       <Stack.Screen options={
         {
           headerShown: true,
@@ -129,21 +127,16 @@ const LoginScreen = () => {
 
         <NavigationContainer independent={true}>
           <tab.Navigator
+          swipeEnabled={false}
             style={{ backgroundColor: COLORS.white2 }}
             initialRouteName="Mobile"
             tabBar={props => <MyTabBar {...props} />}
           >
-            <tab.Screen options={
-              {
-                tabBarLabel: 'Mobile'
-                
-              }
-            } name="Mobile" component={LoginWithMobile} />
+            <tab.Screen name="Mobile" component={LoginWithMobile} />
             <tab.Screen name="Email" component={LoginWithEmail} />
           </tab.Navigator>
         </NavigationContainer>
       </SafeAreaView>
-
     </>
 
   )
