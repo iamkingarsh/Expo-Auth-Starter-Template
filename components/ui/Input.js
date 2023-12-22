@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { Text, TextInput } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 import * as Haptics from 'expo-haptics';
@@ -24,6 +24,10 @@ const Input = ({ type, label, labelTitle, ...props }) => {
     };
 
     return (
+        <>
+            {label && (
+                <Text style={[tw`text-sm text-gray-500`, { fontFamily: FONT.regular }]}>{labelTitle ? labelTitle : ''}</Text>
+            )}
         <TextInput
             placeholderTextColor={COLORS.gray2}
             onFocus={() => {
@@ -44,7 +48,8 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             style={[tw`px-4 py-4 rounded-lg `, {borderRadius:SIZES.small,  fontFamily: FONT.regular, fontSize:SIZES.medium,  borderColor:COLORS.gray2, borderWidth:1, backgroundColor: COLORS.white }, props.style]}
             keyboardType={keyboardType}
             {...props}
-        />
+            />
+            </>
     );
 };
 

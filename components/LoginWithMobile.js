@@ -10,7 +10,10 @@ const LoginWithMobile = () => {
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white2, }}>
         <View style={{ margin:SIZES.medium, gap:6, justifyContent: 'center'}}>
             
-            <Input placeholder="Enter Mobile Number" type="phone" />
+            <Input
+            label={true}
+            labelTitle="Enter Your Mobile Number"
+            placeholder="eg. 99999 99999" type="phone" />
            <Button variant="primary" >Request OTP</Button>
         </View>
        
