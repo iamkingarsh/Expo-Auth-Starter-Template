@@ -6,9 +6,9 @@ const APP_AUTHOR = "My Name";
 //Login Screen
 
 const AUTH_TYPES = {
-  EMAIL: true,
-  MOBILE: false,
-};
+  EMAIL: true, 
+  MOBILE: true,
+}; //true for enable and false for disable, Either one of them should be true
 
 const COLORS = {
   primary: "#2E3190",
