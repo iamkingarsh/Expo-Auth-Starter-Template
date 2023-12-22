@@ -73,6 +73,9 @@ const index = () => {
                 }}
             />
             <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white, margin: SIZES.medium }}>
+            <KeyboardAvoidingView behavior='padding'  keyboardVerticalOffset={-150} style={{ flex: 1 }}>
+                
+                <View style={{ flex: 1 }}>
                 <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center' }}>
                     <Image source={require('../../../assets/images/OTPScreen.png')} style={{ width: 200, objectFit:'contain'}} />
                 </View>
@@ -82,12 +85,10 @@ const index = () => {
                         <Text style={{ fontFamily: FONT.medium, marginTop: SIZES.xxSmall, fontSize: SIZES.medium, color: COLORS.gray }}>A 6 digit OTP has been sent to  your mobile number +91 7013396624</Text>
                     </View>
                     <View style={{flex: 0.25,  justifyContent: 'start', alignItems: 'start' }}>
-                        <KeyboardAvoidingView behavior='margin' keyboardVerticalOffset={-100} style={{ flex: 1 }}>
                             <OtpInput
                             length={6}
                             value={otp}
                             onOtpChange={(text) => setOtp(text)}/>
-                        </KeyboardAvoidingView>
                     </View>
                     <View style={{ flex: 0.3 }}>
 
@@ -100,6 +101,9 @@ const index = () => {
                     </View>
                     </View>
                 </View>
+                </View>
+                </KeyboardAvoidingView> 
+
             </SafeAreaView>
         </>
     )

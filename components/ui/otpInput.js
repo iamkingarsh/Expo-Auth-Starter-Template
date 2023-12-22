@@ -1,11 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { TextInput, View, StyleSheet, Keyboard } from 'react-native';
 import { COLORS, SHADOWS, SIZES } from '../../constants/theme';
 import { KeyboardAvoidingView } from 'react-native-web';
 
 const OtpInput = ({ length = 6, value,  onOtpChange }) => {
     const [otp, setOtp] = useState('');
     const inputRefs = useRef([]);
+
+    useEffect(() => {
+        if (otp.length === length) {
+          Keyboard.dismiss();
+        }
+      }, [otp, length]);
 
     const handleOtpChange = (index, value) => {
         const newOtp = otp.split('');
@@ -33,18 +39,26 @@ const OtpInput = ({ length = 6, value,  onOtpChange }) => {
                     style={[styles.input, SHADOWS.small, {borderColor: otp[i] ? COLORS.primary : COLORS.gray2, backgroundColor: otp[i] ? COLORS.tabWhite : COLORS.white, width: length == 6 ? 50 : 60, height: length == 6 ? 50 : 60, fontSize: length == 6 ? SIZES.large : SIZES.large, borderRadius: length == 6 ? 12 : 12,	}]}
                     maxLength={1}
                     enablesReturnKeyAutomatically={true}
-                    keyboardType="numeric"
+                    keyboardType="number-pad"
                     caretHidden = {true}
                     textContentType='oneTimeCode'
                     // autoFocus={i === 0 ? true : false}
                     focusable={true}
-                    enterKeyHint='done'
+                    keyboardAppearance='light'
+                    
                     collapsable={true}
                     value={value && value[i] ? value[i] : ''}
                     onChangeText={(value) => {handleOtpChange(i, value)}}
                     onKeyPress={({ nativeEvent: { key } }) => handleKeyPress(i, key)}
                     ref={(ref) => (inputRefs.current[i] = ref)}
+                    contextMenuHidden={true}
+                    returnKeyType='done'
                     blurOnSubmit={false}
+                    onSubmitEditing={() => {
+                        
+                          Keyboard.dismiss();
+                       
+                      }}
                 />
            
 
