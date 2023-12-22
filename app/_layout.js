@@ -55,7 +55,7 @@ export default function Layout() {
     screenListeners={
         {
             didFocus: () => {
-                StatusBar.setBarStyle('light-content');
+                StatusBar.setBarStyle('auto');
             },
         }
     }
