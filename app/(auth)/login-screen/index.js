@@ -160,7 +160,9 @@ const LoginScreen = () => {
         {AUTH_TYPES.MOBILE && AUTH_TYPES.EMAIL &&
           <NavigationContainer independent={true}>
             <tab.Navigator
-              swipeEnabled={false}
+              screenOptions={{
+                swipeEnabled: false,
+              }}
               style={{ backgroundColor: COLORS.white2 }}
               initialRouteName="Mobile"
               tabBar={props => <MyTabBar {...props} />}

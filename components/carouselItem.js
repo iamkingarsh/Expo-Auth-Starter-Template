@@ -8,8 +8,8 @@ const CarouselItem = ({ item }) => {
 
   return (
     <View style={{ width, justifyContent: 'center', flex: 1, alignItems: 'center' }}>
-      <View style={{ flex: 0.6, }}>
-        <Image source={item.image} style={[width - 50, { flex: 0.9, objectFit: 'contain', resizeMode: 'contain' },]} />
+      <View style={{ flex: 0.7, }}>
+        <Image source={item.image} style={[width - 50, { flex: 0.85, objectFit: 'contain', resizeMode: 'contain' },]} />
       </View>
       <Text
         numberOfLines={2}

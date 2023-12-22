@@ -13,7 +13,7 @@ export default carouselData = [
     },
     {
         id: 3,
-        title: 'Free & Fast Pickup & Delivery',
+        title: 'Free & Fast \n Pickup & Delivery',
         description: 'Free and fast delivery for all Orders.',
         image: require('../assets/images/Carousel3.png'),
     }
