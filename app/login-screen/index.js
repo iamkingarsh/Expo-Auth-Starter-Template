@@ -41,6 +41,7 @@ const LoginScreen = () => {
 
             if (!isFocused && !event.defaultPrevented) {
               navigation.navigate(route.name, route.params);
+              setActiveTab(route.name)
             }
           };
 
@@ -121,7 +122,7 @@ const LoginScreen = () => {
               Login to Your Account
             </Text>
             <Text style={[tw`text-left mx-4`, { fontFamily: FONT.medium, fontSize: SIZES.medium }]}>
-             {activeTab == 'Mobile' ? 'Login with your mobile OTP' : 'Login with your email'} 
+             {activeTab == 'Mobile' ? 'Login with your mobile' : 'Login with your email'} 
             </Text>
           </View>
 
@@ -132,7 +133,12 @@ const LoginScreen = () => {
             initialRouteName="Mobile"
             tabBar={props => <MyTabBar {...props} />}
           >
-            <tab.Screen name="Mobile" component={LoginWithMobile} />
+            <tab.Screen options={
+              {
+                tabBarLabel: 'Mobile'
+                
+              }
+            } name="Mobile" component={LoginWithMobile} />
             <tab.Screen name="Email" component={LoginWithEmail} />
           </tab.Navigator>
         </NavigationContainer>
