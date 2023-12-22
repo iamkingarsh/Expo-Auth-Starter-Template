@@ -1,28 +1,29 @@
 import React from 'react';
-import { View, ScrollView, Dimensions, SafeAreaView } from 'react-native';
+import { View, ScrollView, Dimensions, SafeAreaView, FlatList } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { COLORS } from '../constants/theme';
+import PagerView from 'react-native-pager-view';
 
-const Carousel = ({ children,  ...props }) => {
-    const screenWidth = Dimensions.get('window').width;
+const Carousel = ({ children,data , ...props }) => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
 
     return (
-        <ScrollView
+        <FlatList
             horizontal
             pagingEnabled
             showsHorizontalScrollIndicator={false}
-            style={[tw`bg-red-500 w-full rounded-md p-4 h-60`, {backgroundColor: COLORS.white},  props.style]}
+            data={data}
+            renderItem={({ item }) => {
+                return (
+                    <View style={[tw`w-full`, { height: Dimensions.get('window').height / 3 }]}>
+                        {item}
+                    </View>
+                );
+            }}
+            keyExtractor={(item) => item.id}
+            
             {...props}
-        >
-
-            {children.map((child, index) => (
-            <SafeAreaView key={index} style={[tw` `, {color: COLORS.gray},  props.style]} >
-                <View style={tw`w-full`}>
-                    {child}
-                </View>
-            </SafeAreaView>
-            ))}
-        </ScrollView>
+        />
     );
 };
 

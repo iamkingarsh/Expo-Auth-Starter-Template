@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar'
 import Button from '../components/ui/button'
 import Carousel from '../components/carousel'
 import tw from 'tailwind-react-native-classnames'
+import carouselData from '../constants/carouselData'
 
 const landingScreen = () => {
     return (
@@ -36,17 +37,8 @@ const landingScreen = () => {
                         >
 
                         <Carousel
-                          
-                            >
-                            <View style={tw`w-full`}>
-                                <Text style={{fontSize: SIZES.large, fontFamily: FONT.bold}}>Carousel</Text>
-                            </View>
-                            <View>
-                                <Text style={{fontSize: SIZES.large, fontFamily: FONT.bold}}>Carousel</Text>
-                            </View>
-                             
-                           
-                        </Carousel>
+                        data={carouselData}
+                        />
                     </View>
                     </View>
                     <View
@@ -60,9 +52,11 @@ const landingScreen = () => {
                          
                     }}
                     >
+                        <View style={{margin: SIZES.medium}}>
 
                         <Button onPress={() => router.push('login-screen')} variant="default">Login</Button>
                         <Button onPress={() => router.push('register-screen')}  variant="secondary">Register</Button>
+                        </View>
                     </View>
                 </View>
 
