@@ -9,13 +9,36 @@ import LoginWithEmail from '../../components/LoginWithEmail'
 import tw from 'tailwind-react-native-classnames'
 import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'react-native-web'
+import * as Haptics from 'expo-haptics';
 
 const LoginScreen = () => {
   const tab = createMaterialTopTabNavigator()
   const [activeTab, setActiveTab] = React.useState('Mobile')
 
 
-
+  const hapticFeedback = ( type ) => {
+     if (type == 'success') {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+     }
+      else if (type == 'error') {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+      else if (type == 'warning') {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+      }
+      else if (type == 'selection') {
+        Haptics.selectionAsync();
+      }
+      else if (type == 'heavy') {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+      }
+      else if (type == 'medium') {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      }
+      else {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      }
+  };
 
   function MyTabBar({ state, descriptors, navigation, position }) {
     return (
@@ -33,6 +56,7 @@ const LoginScreen = () => {
 
           const onPress = () => {
             setActiveTab(route.name)
+            hapticFeedback('medium')
             const event = navigation.emit({
               type: 'tabPress',
               target: route.key,
@@ -60,6 +84,7 @@ const LoginScreen = () => {
 
           return (
             <TouchableOpacity
+            key={index}
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
