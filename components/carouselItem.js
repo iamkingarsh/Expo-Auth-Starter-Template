@@ -1,6 +1,7 @@
 import { View, Text,Image, useWindowDimensions } from 'react-native'
 import React from 'react'
 import { COLORS, FONT, SIZES } from '../constants/theme';
+import tw from 'tailwind-react-native-classnames';
 
 const CarouselItem = ({item}) => {
     const {width} = useWindowDimensions();
@@ -15,9 +16,10 @@ const CarouselItem = ({item}) => {
       <Image source={item.image} style={[width - 50, {flex:0.7,  objectFit: 'contain', resizeMode: 'contain'},]} />
       </View>
       <Text
-      style={{fontSize: SIZES.xxLarge, fontFamily: FONT.bold}}
+      numberOfLines={2}
+      style={[tw`mx-4 px-6`,{fontSize: SIZES.xxLarge, fontFamily: FONT.extraBold, textAlign: 'center', color: COLORS.primary}]}
       >{item.title}</Text>
-      <Text style={{fontSize:SIZES.medium, color: COLORS.gray}} >{item.description}</Text>
+      <Text style={[tw`mx-6 mt-1`,{fontSize:SIZES.medium, color: COLORS.gray, textAlign:'center'}]} >{item.description}</Text>
  
     </View>
   )

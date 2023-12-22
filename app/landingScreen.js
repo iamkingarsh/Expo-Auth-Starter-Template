@@ -89,6 +89,7 @@ const landingScreen = () => {
             stopAutoScroll();
         };
     }, [currentIndex]);
+    
     return (
         <View>
 
