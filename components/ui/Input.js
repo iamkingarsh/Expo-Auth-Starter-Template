@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, TextInput } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 import * as Haptics from 'expo-haptics';
 
 const Input = ({ type, label, labelTitle, ...props }) => {
+    const [value, setValue] = useState(props.value ? props.value : '');
+    const [error, setError] = useState(false); 
+    const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        if (type === 'phone' && value.length > 10) {
+            setError(true);
+            setErrorMessage('Mobile number should be 10 digits');
+        }   else if (type === 'email' && value.length > 4 && !value.includes('@')) {
+            setError(true);
+            setErrorMessage('Invalid email address');
+        }        
+        else {
+            setError(false);
+            setErrorMessage('');
+        }
+    }, [value]);
+    
+
+
     let keyboardType = 'default';
 
     if (type === 'numeric') {
@@ -26,7 +46,7 @@ const Input = ({ type, label, labelTitle, ...props }) => {
     return (
         <>
             {label && (
-                <Text style={[tw`text-sm text-gray-500`, { fontFamily: FONT.regular }]}>{labelTitle ? labelTitle : ''}</Text>
+                <Text style={[tw`text-sm `, { fontFamily: FONT.medium, color: COLORS.gray }]}>{labelTitle ? labelTitle : ''}</Text>
             )}
         <TextInput
             placeholderTextColor={COLORS.gray2}
@@ -40,8 +60,8 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             }}
             
             selectionColor={COLORS.primary}
-            value={props.value}
-            onChangeText={props.onChangeText}            
+            value={value}
+            onChangeText={(text) => { setValue(text); props.onChangeText && props.onChangeText(text); }}        
             onBlur={() => {
                 props.onBlur && props.onBlur();
             }}
@@ -49,6 +69,8 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             keyboardType={keyboardType}
             {...props}
             />
+            {error && <Text style={[tw`text-sm text-red-500`, { fontFamily: FONT.medium }]}>{errorMessage}</Text>}
+
             </>
     );
 };

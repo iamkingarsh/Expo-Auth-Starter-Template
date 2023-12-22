@@ -12,8 +12,8 @@ const LoginWithMobile = () => {
             
             <Input
             label={true}
-            labelTitle="Enter Your Mobile Number"
-            placeholder="eg. 99999 99999" type="phone" />
+            labelTitle="Enter Your Email"
+            placeholder="eg. 99999 99999" type="email" />
            <Button variant="primary" >Request OTP</Button>
         </View>
        
