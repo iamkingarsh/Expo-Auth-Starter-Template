@@ -7,6 +7,7 @@ import Button from '../components/ui/button'
 import tw from 'tailwind-react-native-classnames'
 import carouselData from '../constants/carouselData'
 import CarouselItem from '../components/carouselItem'
+import Paginator from '../components/Paginator'
 
 const landingScreen = () => {
     const carouselsData = [
@@ -87,6 +88,7 @@ const landingScreen = () => {
                         ref={slidesRef}
                         showsHorizontalScrollIndicator={false} />
                     </View>
+                    <Paginator data={carouselData} scrollX={scrollX}  />
                     </View>
                     <View
                     style={{
