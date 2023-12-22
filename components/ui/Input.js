@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Text, TextInput } from 'react-native';
+import { Text,View, TextInput } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { COLORS, FONT, SIZES } from '../../constants/theme';
 import * as Haptics from 'expo-haptics';
+import { EyeIcon, EyeSlashIcon, SparklesIcon, SparklesIcon as SparklesIconOutline } from "react-native-heroicons/outline";
 
 const Input = ({ type, label, labelTitle, ...props }) => {
     const [value, setValue] = useState(props.value ? props.value : '');
     const [error, setError] = useState(false); 
     const [errorMessage, setErrorMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(true);
 
     useEffect(() => {
         if (type === 'phone' && value.length > 10) {
@@ -48,6 +50,8 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             {label && (
                 <Text style={[tw`text-sm `, { fontFamily: FONT.medium, color: COLORS.gray }]}>{labelTitle ? labelTitle : ''}</Text>
             )}
+            <View style={[tw`relative`]}>
+
         <TextInput
             placeholderTextColor={COLORS.gray2}
             onFocus={() => {
@@ -58,7 +62,7 @@ const Input = ({ type, label, labelTitle, ...props }) => {
                 props.onKeyPress && props.onKeyPress();
                 hapticFeedback();
             }}
-            
+            secureTextEntry={type === 'password'  && showPassword ? true : false}
             selectionColor={COLORS.primary}
             value={value}
             onChangeText={(text) => { setValue(text); props.onChangeText && props.onChangeText(text); }}        
@@ -69,6 +73,11 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             keyboardType={keyboardType}
             {...props}
             />
+            {type === 'password' && 
+               (showPassword ?  <EyeIcon onPress={()=> setShowPassword(!showPassword)} style={[tw`absolute right-3 top-3`]} width={23} height={23} color={COLORS.gray} /> : <EyeSlashIcon onPress={()=> setShowPassword(!showPassword)}  style={[tw`absolute right-3 top-3`]} width={23} height={23} color={COLORS.gray} />)
+          
+            }
+            </View>
             {error && <Text style={[tw`text-sm text-red-500`, { fontFamily: FONT.medium }]}>{errorMessage}</Text>}
 
             </>
