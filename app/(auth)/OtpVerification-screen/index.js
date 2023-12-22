@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Stack, router } from 'expo-router'
 import { COLORS, FONT, SIZES } from '../../../constants/theme'
-import { ArrowLeftIcon, BackwardIcon } from 'react-native-heroicons/outline'
+import { ArrowLeftIcon, BackwardIcon, ChevronLeftIcon } from 'react-native-heroicons/outline'
 import OtpInput from '../../../components/ui/otpInput'
 import Button from '../../../components/ui/button'
 
@@ -63,7 +63,7 @@ const index = () => {
                                         { cancelable: true }
                                     );
                                 }}>
-                                    <ArrowLeftIcon width={24} height={24} fill={COLORS.tertiary} />
+                                    <ChevronLeftIcon width={24} height={24} color={COLORS.tertiary} />
                                 </TouchableOpacity>
                             </View>
                         )
