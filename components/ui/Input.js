@@ -65,7 +65,7 @@ const Input = ({ type, label, labelTitle, ...props }) => {
             onBlur={() => {
                 props.onBlur && props.onBlur();
             }}
-            style={[tw`px-4 py-4 rounded-lg `, {borderRadius:SIZES.small,  fontFamily: FONT.regular, fontSize:SIZES.medium,  borderColor:COLORS.gray2, borderWidth:1, backgroundColor: COLORS.white }, props.style]}
+            style={[tw`px-4 py-3 rounded-lg `, {borderRadius:SIZES.small,  fontFamily: FONT.regular, fontSize:SIZES.medium,  borderColor:COLORS.gray2, borderWidth:1, backgroundColor: COLORS.white }, props.style]}
             keyboardType={keyboardType}
             {...props}
             />
