@@ -4,6 +4,7 @@ import { COLORS, FONT, SHADOWS, SIZES } from '../constants/theme'
 import Button from './ui/button'
 import tw from 'tailwind-react-native-classnames'
 import Input from './ui/Input'
+import { router } from 'expo-router'
 
 const LoginWithMobile = () => {
   const [mobile, setMobile] = useState('')
@@ -66,7 +67,9 @@ const LoginWithMobile = () => {
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
         <Text style={[tw`text-sm`, { fontFamily: FONT.medium, color: COLORS.gray }]}>Don't have an account?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => router.push('/register-screen')}
+        >
           <Text style={[tw`text-sm mx-1`, { fontFamily: FONT.medium, color: COLORS.primary }]}>Register</Text>
         </TouchableOpacity>
       </View>

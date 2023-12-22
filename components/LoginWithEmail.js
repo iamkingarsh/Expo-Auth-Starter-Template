@@ -15,7 +15,7 @@ const LoginWithEmail = () => {
     const registeredEmail = 'kingarsh175@gmail.com'; //dummy email for login
     const registeredPassword = '123456'; //dummy password 
 
-    
+
 
     const handlesubmit = () => {
         //add submit logic here
@@ -51,13 +51,13 @@ const LoginWithEmail = () => {
                         label={true}
                         labelTitle="Enter Your Email Address"
                         value={email}
-                        onTextChange={(text) => setEmail(text) }
+                        onTextChange={(text) => setEmail(text)}
                         placeholder="eg. example@gmail.com" type="email" />
                     <Input
                         label={true}
                         labelTitle="Enter Your Password"
                         value={password}
-                        onTextChange={(text) => setPassword(text) }
+                        onTextChange={(text) => setPassword(text)}
                         setInputError={error}
                         setInputErrorMessage={errorMessage}
                         placeholder="eg. ********" type="password" />
@@ -71,7 +71,10 @@ const LoginWithEmail = () => {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={[tw`text-sm`, { fontFamily: FONT.medium, color: COLORS.gray }]}>Don't have an account?</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => router.push('/register-screen')}
+
+                    >
                         <Text style={[tw`text-sm mx-1`, { fontFamily: FONT.medium, color: COLORS.primary }]}>Register</Text>
                     </TouchableOpacity>
                 </View>
