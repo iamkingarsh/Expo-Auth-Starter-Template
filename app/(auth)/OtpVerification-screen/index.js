@@ -54,21 +54,9 @@ const index = () => {
             <Text style={{fontFamily: FONT.semiBold, fontSize: SIZES.xLarge, color: COLORS.tertiary}}>Enter OTP</Text>
             <Text style={{fontFamily: FONT.medium,marginTop:SIZES.xxSmall,   fontSize: SIZES.medium, color: COLORS.gray}}>A 6 digit OTP has been sent to  your mobile number +91 7013396624</Text>
         </View>
-        <KeyboardAvoidingView behavior="padding" style={{flex:0.6, justifyContent:'center', alignItems:'center'}}>
-
-        <View style={{flex:0.6, justifyContent:'center', alignItems:'center'}}>
-            {/* <TextInput
-                style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: 50, textAlign:'center' }}
-                textContentType='oneTimeCode'
-                autoFocus={true}
-                caretHidden={true}
-                selectionColor={COLORS.primary}
-                
-                keyboardType="number-pad"
-                maxLength={6}
-                /> */}
-                <OtpInput length={6} onOtpChange={(otp) => console.log(otp)} />
-        </View>
+        <KeyboardAvoidingView behavior="padding" style={{flex:0.4, justifyContent: 'start'}}>
+                <OtpInput length={4} onOtpChange={(otp) => console.log(otp)} />
+      
                 </KeyboardAvoidingView>
     </SafeAreaView>
     </>

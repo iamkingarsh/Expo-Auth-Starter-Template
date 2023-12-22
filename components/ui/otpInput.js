@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
-import { COLORS } from '../../constants/theme';
+import { COLORS, SHADOWS } from '../../constants/theme';
 
 const OtpInput = ({ length = 6, onOtpChange }) => {
     const [otp, setOtp] = useState('');
@@ -28,9 +28,12 @@ const OtpInput = ({ length = 6, onOtpChange }) => {
             inputs.push(
                 <TextInput
                     key={i}
-                    style={styles.input}
+                    style={[styles.input, SHADOWS.small, {borderColor: otp[i] ? COLORS.primary : COLORS.gray2, backgroundColor: otp[i] ? COLORS.tabWhite : COLORS.white}]}
                     maxLength={1}
                     keyboardType="numeric"
+                    caretHidden = {true}
+                    textContentType='oneTimeCode'
+                    autoFocus={i === 0 ? true : false}
                     onChangeText={(value) => handleOtpChange(i, value)}
                     onKeyPress={({ nativeEvent: { key } }) => handleKeyPress(i, key)}
                     ref={(ref) => (inputRefs.current[i] = ref)}
@@ -40,23 +43,21 @@ const OtpInput = ({ length = 6, onOtpChange }) => {
         return inputs;
     };
 
-    return <View style={styles.container}>{renderInputs()}</View>;
+    return <View style={[styles.container, {gap: length == 6 ? 10 : 20 , justifyContent: length == 6 ? 'start' : 'start'}]}>{renderInputs()}</View>;
 };
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 10,
+        
     },
     input: {
-        width: 40,
-        height: 40,
+        width: 60,
+        height: 60,
         borderWidth: 1,
-        backgroundColor: COLORS.tabWhite,
-        borderColor: COLORS.gray,
-        borderRadius: 4,
+        backgroundColor: COLORS.white,
+        borderColor: COLORS.gray2,
+        borderRadius: 12,
         textAlign: 'center',
         fontSize: 16,
     },
