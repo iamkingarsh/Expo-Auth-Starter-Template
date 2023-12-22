@@ -116,7 +116,7 @@ const LoginScreen = () => {
       <SafeAreaView style={tw` bg-white h-full`}>
         
           <View>
-            <Text style={[tw`text-left mx-4`, { fontFamily: FONT.bold, fontSize: SIZES.xxLarge }]}>
+            <Text style={[tw`text-left  mx-4`, { fontFamily: FONT.bold, fontSize: Platform.OS === 'ios' ? SIZES.xxLarge : SIZES.xLarge }]}>
               Login to Your Account
             </Text>
             <Text style={[tw`text-left mx-4`, { fontFamily: FONT.medium, fontSize: SIZES.medium }]}>
