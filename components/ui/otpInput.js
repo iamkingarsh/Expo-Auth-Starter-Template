@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
-import { COLORS, SHADOWS } from '../../constants/theme';
+import { COLORS, SHADOWS, SIZES } from '../../constants/theme';
 
-const OtpInput = ({ length = 6, onOtpChange }) => {
+const OtpInput = ({ length = 6, value,  onOtpChange }) => {
     const [otp, setOtp] = useState('');
     const inputRefs = useRef([]);
 
@@ -28,15 +28,20 @@ const OtpInput = ({ length = 6, onOtpChange }) => {
             inputs.push(
                 <TextInput
                     key={i}
-                    style={[styles.input, SHADOWS.small, {borderColor: otp[i] ? COLORS.primary : COLORS.gray2, backgroundColor: otp[i] ? COLORS.tabWhite : COLORS.white}]}
+                    style={[styles.input, SHADOWS.small, {borderColor: otp[i] ? COLORS.primary : COLORS.gray2, backgroundColor: otp[i] ? COLORS.tabWhite : COLORS.white, width: length == 6 ? 50 : 60, height: length == 6 ? 50 : 60, fontSize: length == 6 ? SIZES.large : SIZES.large, borderRadius: length == 6 ? 12 : 12,	}]}
                     maxLength={1}
                     keyboardType="numeric"
                     caretHidden = {true}
                     textContentType='oneTimeCode'
-                    autoFocus={i === 0 ? true : false}
-                    onChangeText={(value) => handleOtpChange(i, value)}
+                    // autoFocus={i === 0 ? true : false}
+                    focusable={true}
+                    collapsable={true}
+                    value={value && value[i] ? value[i] : ''}
+                    onChangeText={(value) => {handleOtpChange(i, value)}}
                     onKeyPress={({ nativeEvent: { key } }) => handleKeyPress(i, key)}
                     ref={(ref) => (inputRefs.current[i] = ref)}
+                    contextMenuHidden={true}
+                    clearButtonMode='tillEditing'
                 />
             );
         }
@@ -52,8 +57,7 @@ const styles = StyleSheet.create({
         
     },
     input: {
-        width: 60,
-        height: 60,
+       
         borderWidth: 1,
         backgroundColor: COLORS.white,
         borderColor: COLORS.gray2,
