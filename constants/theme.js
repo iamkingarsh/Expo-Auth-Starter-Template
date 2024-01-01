@@ -6,8 +6,9 @@ const APP_AUTHOR = "My Name";
 //Login Screen
 
 const AUTH_TYPES = {
-  EMAIL: true, 
+  EMAIL: true,
   MOBILE: true,
+  EMAIL_WITH_OTP: false,
 }; //true for enable and false for disable, Either one of them should be true
 
 const COLORS = {
