@@ -7,9 +7,10 @@ const APP_AUTHOR = "My Name";
 
 const AUTH_TYPES = {
   EMAIL: true,
-  MOBILE: true,
+  MOBILE: false,
   EMAIL_WITH_OTP: false,
-}; //true for enable and false for disable, Either one of them should be true
+  GOOGLE_PROVIDER: false,
+}; //true for enable and false for disable, Either Email or Mobile must be true
 
 const COLORS = {
   primary: "#2E3190",
@@ -72,4 +73,4 @@ const SHADOWS = {
   },
 };
 
-export {APP_NAME, COLORS, FONT, SIZES, SHADOWS,AUTH_TYPES };
+export {APP_NAME, COLORS, FONT, SIZES, SHADOWS,AUTH_TYPES,APP_VERSION,APP_DESCRIPTION,APP_AUTHOR };

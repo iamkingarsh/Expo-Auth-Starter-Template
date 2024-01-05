@@ -145,7 +145,7 @@ const LoginScreen = () => {
             Login to Your Account
           </Text>
           {AUTH_TYPES.MOBILE && AUTH_TYPES.EMAIL && <Text style={[tw`text-left mx-4 my-1`, { fontFamily: FONT.medium, color: COLORS.gray, fontSize: SIZES.medium }]}>
-            {activeTab == 'Mobile' ? 'Login via Mobile' : 'Login via Email and Password'}
+            {activeTab == 'Mobile' ? 'Login via Mobile' : 'Login via Email'}
           </Text>}
 
           {AUTH_TYPES.MOBILE && !AUTH_TYPES.EMAIL && <Text style={[tw`text-left mx-4 my-1`, { fontFamily: FONT.medium, color: COLORS.gray, fontSize: SIZES.medium }]}>
@@ -153,7 +153,7 @@ const LoginScreen = () => {
           </Text>}
 
           {!AUTH_TYPES.MOBILE && AUTH_TYPES.EMAIL && <Text style={[tw`text-left mx-4 my-1`, { fontFamily: FONT.medium, color: COLORS.gray, fontSize: SIZES.medium }]}>
-            Login via Email and Password
+            Login via Email
           </Text>}
         </View>
 
