@@ -7,8 +7,8 @@ const APP_AUTHOR = "My Name";
 
 const AUTH_TYPES = {
   EMAIL: true,
-  MOBILE: false,
-  EMAIL_WITH_OTP: false,
+  MOBILE: true,
+  EMAIL_WITH_OTP: true,
   GOOGLE_PROVIDER: false,
 }; //true for enable and false for disable, Either Email or Mobile must be true
 

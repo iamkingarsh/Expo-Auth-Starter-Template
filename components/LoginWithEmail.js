@@ -45,7 +45,8 @@ const LoginWithEmail = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white2 }}>
-            {AUTH_TYPES.EMAIL_WITH_OTP === true ? <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+            {AUTH_TYPES.EMAIL_WITH_OTP === false ?
+            <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
                 <View style={{ margin: SIZES.small, gap: 8, justifyContent: 'center' }}>
                     <Input
                         label={true}
@@ -78,6 +79,8 @@ const LoginWithEmail = () => {
                         <Text style={[tw`text-sm mx-1`, { fontFamily: FONT.medium, color: COLORS.primary }]}>Register</Text>
                     </TouchableOpacity>
                 </View>
+                {AUTH_TYPES.GOOGLE_PROVIDER &&
+                <>
                 <View style={[tw`my-4 mx-6`, { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', }]}>
                     <View style={[tw`flex-1`, { height: 1, backgroundColor: COLORS.gray2, opacity: 0.8 }]}></View>
                     <Text style={[tw`text-center my-2 mx-3`, { fontFamily: FONT.medium, color: COLORS.gray }]}> OR </Text>
@@ -89,6 +92,8 @@ const LoginWithEmail = () => {
                         <Text style={[tw`text-center my-2`, { fontFamily: FONT.semiBold, color: COLORS.tertiary }]}>Login With Google</Text>
                     </TouchableOpacity>
                 </View>
+                </>}
+
             </KeyboardAvoidingView> :
                 <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
                     <View style={{ margin: SIZES.small, gap: 8, justifyContent: 'center' }}>

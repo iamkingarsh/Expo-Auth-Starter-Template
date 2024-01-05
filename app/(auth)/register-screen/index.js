@@ -181,11 +181,6 @@ const RegisterScreen = () => {
         {!AUTH_TYPES.MOBILE && AUTH_TYPES.EMAIL &&
           <RegisterWithEmail />
         }
-
-      
-
-
-
       </SafeAreaView>
     </>
 
