@@ -1,4 +1,4 @@
-const APP_NAME = "APlus Laundry";
+const APP_NAME = "Your App Name";
 const APP_VERSION = "1.0.0";
 const APP_DESCRIPTION = "My App Description";
 const APP_AUTHOR = "My Name";
